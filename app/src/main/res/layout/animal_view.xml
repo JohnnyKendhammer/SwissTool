@@ -16,14 +16,50 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:textColor="@color/colorAccent"
-            android:textSize="30sp"
-            app:layout_constraintBottom_toBottomOf="parent"
+            android:textColor="@android:color/black"
+            android:textSize="24sp"
+            app:layout_constraintBottom_toTopOf="@id/tvAnimalType"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintStart_toEndOf="@id/ivAnimalPic"
             app:layout_constraintTop_toTopOf="parent"
             tools:text="Animal Name" />
 
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tvAnimalType"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textColor="@android:color/black"
+            android:textSize="24sp"
+            app:layout_constraintBottom_toTopOf="@id/tvAnimalFact"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/ivAnimalPic"
+            app:layout_constraintTop_toBottomOf="@id/tvAnimalName"
+            tools:text="Animal Type" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tvAnimalFact"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textColor="@android:color/black"
+            android:textSize="24sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/ivAnimalPic"
+            app:layout_constraintTop_toBottomOf="@id/tvAnimalType"
+            tools:text="Animal Fact" />
+
+        <ImageView
+            android:id="@+id/ivAnimalPic"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toStartOf="@id/tvAnimalName"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+
 
 </com.google.android.material.card.MaterialCardView>

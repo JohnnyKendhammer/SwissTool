@@ -16,6 +16,7 @@ import android.widget.Toast;
 
 import com.example.swisstool.R;
 import com.example.swisstool.adapter.AnimalAdapter;
+import com.example.swisstool.model.Animal;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 /**
@@ -50,7 +51,8 @@ public class AnimalFragment extends Fragment {
         fabAddNewAnimal.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(view.getContext(), "ADD NEW ANIMAL", Toast.LENGTH_SHORT).show();
+                animalAdapter.addNewAnimal(new Animal(R.drawable.turtle, "Donatello", "Ninja", "Loves Pizza"));
+                Toast.makeText(view.getContext(), "ADDED NEW ANIMAL", Toast.LENGTH_SHORT).show();
             }
         });
     }

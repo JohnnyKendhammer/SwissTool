@@ -37,6 +37,11 @@ public class MainActivity extends AppCompatActivity implements HomeFragment.Home
 
     }
 
+    @Override
+    public void loadAnimalHouse() {
+        loadFragmentWithBackStack(new AnimalFragment(), "AnimalHouse");
+    }
+
     private void loadFragment(Fragment fragment) {
         getSupportFragmentManager()
                 .beginTransaction()
@@ -51,4 +56,5 @@ public class MainActivity extends AppCompatActivity implements HomeFragment.Home
                 .addToBackStack(fragName)
                 .commit();
     }
+
 }

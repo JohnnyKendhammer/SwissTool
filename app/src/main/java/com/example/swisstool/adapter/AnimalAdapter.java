@@ -3,6 +3,7 @@ package com.example.swisstool.adapter;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -11,21 +12,22 @@ import com.example.swisstool.R;
 import com.example.swisstool.model.Animal;
 import com.google.android.material.textview.MaterialTextView;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 public class AnimalAdapter extends RecyclerView.Adapter<AnimalAdapter.AnimalViewHolder> {
 
-    private List<Animal> animalList;
+    private ArrayList<Animal> animalList;
 
     public AnimalAdapter() {
-        animalList = Arrays.asList(
-                new Animal("Johny"),
-                new Animal("Zabomafoo"),
-                new Animal("Clifford"),
-                new Animal("Courage"),
-                new Animal("Garfield")
-        );
+        animalList = new ArrayList(Arrays.asList(
+                new Animal(R.drawable.alligator, "Wally", "Alligator", "Dangerous"),
+                new Animal(R.drawable.pitbull, "Nena", "Dog", "Loves Food"),
+                new Animal(R.drawable.fish, "Nemo", "Fish", "Easily Lost"),
+                new Animal(R.drawable.lion, "Leo", "Lion", "Fuck you up"),
+                new Animal(R.drawable.rhino, "Ricky", "Rhinoceros", "Endangered")
+        ));
     }
 
     @NonNull
@@ -40,7 +42,10 @@ public class AnimalAdapter extends RecyclerView.Adapter<AnimalAdapter.AnimalView
     @Override
     public void onBindViewHolder(@NonNull AnimalViewHolder holder, int position) {
         Animal animal = animalList.get(position);
-        holder.tvAnimalName.setText(animal.getName());
+        holder.ivAnimalPic.setImageResource(animal.getImageID());
+        holder.tvAnimalName.setText("Name: " + animal.getName());
+        holder.tvType.setText("Type: " + animal.getType());
+        holder.tvFact.setText("Fact: " + animal.getFact());
     }
 
     @Override
@@ -55,10 +60,16 @@ public class AnimalAdapter extends RecyclerView.Adapter<AnimalAdapter.AnimalView
 
     class AnimalViewHolder extends RecyclerView.ViewHolder {
         MaterialTextView tvAnimalName;
+        MaterialTextView tvType;
+        MaterialTextView tvFact;
+        ImageView ivAnimalPic;
 
         AnimalViewHolder(@NonNull View itemView) {
             super(itemView);
+            ivAnimalPic = itemView.findViewById(R.id.ivAnimalPic);
             tvAnimalName = itemView.findViewById(R.id.tvAnimalName);
+            tvType = itemView.findViewById(R.id.tvAnimalType);
+            tvFact = itemView.findViewById(R.id.tvAnimalFact);
         }
     }
 }
